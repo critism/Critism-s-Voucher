@@ -4,21 +4,256 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Critism's Voucher</title>
+    
+    <meta property="og:title" content="Critism's Voucher">
+    <meta property="og:description" content="The ultimate bot to enhance and secure your Discord server.">
+    <meta property="og:theme-color" content="#5865F2">
+    
     <style>
-        body { font-family: Arial, sans-serif; background: #2f3136; color: white; text-align: center; padding: 50px; }
-        a { color: #5865F2; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        .btn { background: #5865F2; padding: 12px 24px; color: white; border-radius: 5px; display: inline-block; margin-top: 20px; text-decoration: none; }
-        .btn:hover { background: #4752c4; }
+        :root {
+            --bg-color: #1e1f22;
+            --card-color: #2b2d31;
+            --text-color: #f2f3f5;
+            --text-muted: #b5bac1;
+            --blurple: #5865F2;
+            --blurple-hover: #4752c4;
+            --danger: #da373c;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg-color); 
+            color: var(--text-color); 
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar for Login */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px 30px;
+            background: #111214;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+
+        .username {
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: none;
+            border: 1px solid var(--danger);
+            color: var(--danger);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .logout-btn:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        .login-btn {
+            background: var(--blurple);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .login-btn:hover { background: var(--blurple-hover); }
+
+        .container {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 30px; }
+
+        .main-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn { 
+            background: var(--blurple); 
+            padding: 14px 28px; 
+            color: white; 
+            border-radius: 6px; 
+            display: inline-block; 
+            font-weight: 600;
+            text-decoration: none; 
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+        .btn:hover { 
+            background: var(--blurple-hover); 
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .card {
+            background: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #3f4147;
+        }
+
+        .card h3 { margin-top: 0; color: var(--blurple); }
+        .card p { margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+        footer { padding: 30px; background: #111214; font-size: 0.9rem; }
+        footer a { color: var(--blurple); text-decoration: none; margin: 0 10px; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+        
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Discord Bot!</h1>
-    <p>The ultimate bot to enhance your Discord server.</p>
-    <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1511428201547567355&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">Invite Bot</a>
-    <br><br><br><br>
+
+    <!-- Navigation Bar with Login Elements -->
+    <div class="navbar">
+        <div id="login-section">
+            <a id="discord-login-link" class="login-btn" href="#">Login with Discord</a>
+        </div>
+        <div id="user-section" class="user-profile hidden">
+            <img id="user-avatar" class="avatar" src="" alt="Avatar">
+            <span id="user-name" class="username"></span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Critism's Voucher</h1>
+        <p class="subtitle">The ultimate bot to enhance your Discord server.</p>
+        
+        <div class="main-actions">
+            <a class="btn" href="https://discord.com" target="_blank">Invite Bot</a>
+        </div>
+
+        <div class="features">
+            <div class="card">
+                <h3>🎫 Voucher Tracking</h3>
+                <p>Manage, issue, and log system vouchers directly within your text channels seamlessly.</p>
+            </div>
+            <div class="card">
+                <h3>⚡ Fast & Reliable</h3>
+                <p>Built with optimization in mind to ensure high uptime and near-instant command responses.</p>
+            </div>
+            <div class="card">
+                <h3>🛠️ Slash Commands</h3>
+                <p>Fully supports integrated application commands for an intuitive user experience.</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
+        <p>&copy; 2026 Critism's Voucher. All rights reserved.</p>
         <a href="privacy.html">Privacy Policy</a> | 
         <a href="tos.html">Terms of Service</a>
     </footer>
+
+    <!-- JavaScript to Handle OAuth2 Logic -->
+    <script>
+        // CONFIGURATION: Replace these values!
+        const CLIENT_ID = '1511428201547567355'; 
+        const REDIRECT_URI = window.location.origin + window.location.pathname; 
+
+        // Generate the Discord OAuth2 URL
+        const loginUrl = `https://discord.com{CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify`;
+        document.getElementById('discord-login-link').href = loginUrl;
+
+        // Function to parse access token from URL fragment hash
+        function getAccessToken() {
+            const fragment = new URLSearchParams(window.location.hash.slice(1));
+            const token = fragment.get('access_token');
+            
+            if (token) {
+                // Clear the hash from the address bar for security and clean UI
+                window.location.hash = '';
+                localStorage.setItem('discord_access_token', token);
+                return token;
+            }
+            return localStorage.getItem('discord_access_token');
+        }
+
+        // Fetch user data using the token
+        async function fetchDiscordUser() {
+            const token = getAccessToken();
+            if (!token) return;
+
+            try {
+                const response = await fetch('https://discord.com', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    displayUser(user);
+                } else {
+                    // Token expired or invalid
+                    logout();
+                }
+            } catch (error) {
+                console.error('Error fetching data from Discord:', error);
+                logout();
+            }
+        }
+
+        // Update UI with User Information
+        function displayUser(user) {
+            document.getElementById('login-section').classList.add('hidden');
+            document.getElementById('user-section').classList.remove('hidden');
+            
+            document.getElementById('user-name').innerText = user.username;
+            
+            // Set avatar image url (fallback to default asset if user has none)
+            if (user.avatar) {
+                document.getElementById('user-avatar').src = `https://discordapp.com{user.id}/${user.avatar}.png`;
+            } else {
+                const defaultAvatarIdx = parseInt(user.discriminator) % 5 || 0;
+                document.getElementById('user-avatar').src = `https://discordapp.com{defaultAvatarIdx}.png`;
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('discord_access_token');
+            document.getElementById('login-section').classList.remove('hidden');
+            document.getElementById('user-section').classList.add('hidden');
+        }
+
+        // Run checking code when page loads
+        window.onload = fetchDiscordUser;
+    </script>
 </body>
 </html>
