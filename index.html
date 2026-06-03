@@ -162,7 +162,6 @@
         .card h3 { margin-top: 0; color: var(--blurple); }
         .card p { margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- HOW IT WORKS & EMBED PREVIEW STYLES --- */
         .section-block {
             background: var(--card-color);
             padding: 30px;
@@ -192,7 +191,6 @@
         }
         .step-item p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
 
-        /* Discord Embed Simulator */
         .discord-embed-container {
             background: #313338;
             padding: 20px;
@@ -242,6 +240,40 @@
         footer { padding: 30px; background: #111214; font-size: 0.9rem; margin-top: 40px; }
         footer a { color: var(--blurple); text-decoration: none; margin: 0 10px; font-weight: 500; }
         footer a:hover { text-decoration: underline; }
+
+        /* --- ANNOUNCEMENT BOX STYLES --- */
+        .announcement-box {
+            background: var(--card-color);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #3f4147;
+            border-left: 4px solid var(--blurple);
+            text-align: left;
+            margin-top: -20px;
+            margin-bottom: 40px;
+        }
+        .announcement-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .announcement-title {
+            margin: 0;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .announcement-text {
+            margin: 0 0 10px 0;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .announcement-date {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -249,111 +281,107 @@
     <div class="navbar">
         <div class="brand">Critism's Voucher</div>
     </div>
+
     <div class="container">
-        <h1>Critism's Voucher</h1>
-        <p class="subtitle">The ultimate bot to enhance your Discord server.</p>
-        
+        <!-- Main Header / Status -->
         <div class="server-badge">
             <span class="pulse-dot"></span>
-            <span>Trusted by 150+ Servers</span>
+            Bot Online & Ready
         </div>
         
+        <h1>Critism's Voucher</h1>
+        <p class="subtitle">The ultimate bot to enhance and secure your Discord server.</p>
+        
+        <!-- Main Action Buttons -->
         <div class="main-actions">
-            <!-- Setze hier im href deine echte Bot-Invite-URL aus dem URL-Generator ein -->
-            <a class="btn btn-blurple" href="https://discord.com" target="_blank">Invite Bot</a>
-            <a class="btn btn-secondary" href="commands.html">View Commands</a>
+            <a href="#" class="btn btn-blurple">Invite Bot</a>
+            <a href="#" class="btn btn-secondary">Support Server</a>
+        </div>
+        <!-- Announcement Category -->
+        <div class="announcement-box">
+            <div class="announcement-header">
+                <span style="font-size: 1.4rem;">📢</span>
+                <h3 class="announcement-title">Latest Announcement</h3>
+            </div>
+            <p class="announcement-text">
+                <strong>Update v2.1 is officially live!</strong> We completely overhauled the voucher system. From now on, automatic action logs are supported inside your Discord server as soon as a code is successfully redeemed.
+            </p>
+            <span class="announcement-date">Posted on June 3, 2026</span>
         </div>
 
-        <!-- FEATURES SEKTION -->
+        <!-- Features Grid -->
+        <h2>Core Features</h2>
         <div class="features">
             <div class="card">
-                <h3>🎫 Voucher Tracking</h3>
-                <p>Manage, issue, and log system vouchers directly within your text channels seamlessly.</p>
+                <h3>🛡️ Security</h3>
+                <p>Protect your server from raid attacks and automated bad actors with modern, advanced filters.</p>
+            </div>
+            <div class="card">
+                <h3>🎫 Voucher System</h3>
+                <p>Create, manage, and distribute custom, single-use vouchers directly to your active community.</p>
             </div>
             <div class="card">
                 <h3>⚡ Fast & Reliable</h3>
-                <p>Built with optimization in mind to ensure high uptime and near-instant command responses.</p>
-            </div>
-            <div class="card">
-                <h3>🛠️ Slash Commands</h3>
-                <p>Fully supports integrated application commands for an intuitive user experience.</p>
+                <p>Hosted on high-end hardware infrastructure for minimum latency and maximum 24/7 uptime.</p>
             </div>
         </div>
 
-        <!-- VISUELLE EMBED VORSCHAU SEKTION -->
+        <!-- How It Works Section -->
         <div class="section-block">
-            <h2>✨ Visual Previews</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">This is how clean and informative our automated voucher logs look inside your server's text channels:</p>
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <p>Invite the bot to your Discord server using the blue button at the top of this page.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <p>Use the global <code>/setup</code> command to configure basic logging and notification channels.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <p>Generate secure codes with <code>/voucher create</code> and reward your community members.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discord Embed Preview -->
+        <div class="section-block">
+            <h2>Embed Preview</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">This is how an automated bot notification looks inside Discord:</p>
             
             <div class="discord-embed-container">
                 <div class="discord-embed">
                     <div class="embed-content">
-                        <div class="embed-title">✅ New Voucher Received!</div>
-                        <div class="embed-description">A new positive vouch has been submitted for <span class="embed-mention">@User</span>.</div>
+                        <div class="embed-title">🎁 New Voucher Available!</div>
+                        <div class="embed-description">A new community voucher code has just been generated. Claim it quickly before anyone else does!</div>
                         
                         <div class="embed-fields">
                             <div>
-                                <div class="embed-field-title">👤 User Vouched</div>
-                                <div class="embed-mention">@User</div>
+                                <div class="embed-field-title">Code</div>
+                                <div class="embed-value"><code>CRITISM-2026-XMAS</code></div>
                             </div>
                             <div>
-                                <div class="embed-field-title">✍️ Vouched By</div>
-                                <div class="embed-mention">@Admin</div>
+                                <div class="embed-field-title">Created By</div>
+                                <div class="embed-value"><span class="embed-mention">@Critism</span></div>
                             </div>
                         </div>
                         
-                        <div style="margin-bottom: 12px;">
-                            <div class="embed-field-title">📊 Total Vouches</div>
-                            <div class="embed-value">1 vouches</div>
-                        </div>
-
-                        <div>
-                            <div class="embed-field-title">📄 Reason / Details</div>
-                            <div class="embed-value" style="background: #1e1f22; padding: 8px; border-radius: 4px; margin-top: 4px; border: 1px solid #3f4147;">
-                                Successfully bought the items! Fast delivery and very helpful support team.
-                            </div>
-                        </div>
-                        
-                        <div class="embed-footer">User ID: 000000000000000000 • Anti-Scam Verification • Today at 15:01</div>
-                    </div>
-                    <div class="embed-thumbnail">
-                        <!-- Platzhalter für das Logo im Embed -->
-                        <img src="https://discordapp.com" alt="Bot Logo">
+                        <div class="embed-footer">Critism's Voucher • Today at 4:25 PM</div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- HOW IT WORKS SEKTION -->
-        <div class="section-block">
-            <h2>🚀 How It Works</h2>
-            <div class="steps-grid">
-                <div class="step-item">
-                    <div class="step-num">Step 1</div>
-                    <p>Click the <strong>Invite Bot</strong> button above to add Critism's Voucher to your own Discord server.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">Step 2</div>
-                    <p>Use our simple slash commands like <code>/setup</code> to configure your logging channels instantly.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">Step 3</div>
-                    <p>Start issuing, tracking, and managing safe vouchers directly within your community.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ABOUT US SEKTION -->
-        <div class="about-section">
-            <h2>👥 About Us</h2>
-            <p>Welcome to Critism's Voucher! We are dedicated to creating powerful, secure, and user-friendly tools for Discord communities. Our mission is to simplify server management by providing an intuitive voucher system that helps administrators reward, track, and engage their members efficiently. Built with modern web technologies, we ensure high reliability and speed so you can focus on growing your community.</p>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Critism's Voucher. All rights reserved.</p>
-        <a href="privacy.html">Privacy Policy</a> | 
-        <a href="tos.html">Terms of Service</a>
+        <p>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Discord ToS</a>
+        </p>
     </footer>
 
 </body>
