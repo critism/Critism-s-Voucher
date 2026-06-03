@@ -48,6 +48,9 @@
             font-weight: 700;
             font-size: 1.2rem;
             color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .container {
@@ -58,7 +61,7 @@
         }
 
         h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        h2 { font-size: 1.8rem; margin-bottom: 20px; color: white; }
+        h2 { font-size: 1.8rem; margin-bottom: 20px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 15px; }
 
         .server-badge {
@@ -73,6 +76,21 @@
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 30px;
+        }
+        
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #f1c40f;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: -15px;
+            margin-bottom: 45px;
+            background: rgba(241, 196, 15, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(241, 196, 15, 0.2);
         }
         
         .pulse-dot {
@@ -93,15 +111,18 @@
         .main-actions {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 50px;
+            margin-bottom: 35px;
         }
 
         .btn { 
             padding: 14px 28px; 
             color: white; 
             border-radius: 6px; 
-            display: inline-block; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-weight: 600;
             text-decoration: none; 
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -159,7 +180,7 @@
             border-color: var(--blurple);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        .card h3 { margin-top: 0; color: var(--blurple); }
+        .card h3 { margin-top: 0; color: var(--blurple); display: flex; align-items: center; gap: 8px; }
         .card p { margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem; }
 
         .section-block {
@@ -279,25 +300,16 @@
 <body>
 
     <div class="navbar">
-        <div class="brand">Critism's Voucher</div>
+        <div class="brand">🤖 Critism's Voucher</div>
     </div>
 
     <div class="container">
         <!-- Main Header / Status -->
         <div class="server-badge">
             <span class="pulse-dot"></span>
-            Bot Online & Ready
+            🟢 Bot Online & Ready
         </div>
-        
-        <h1>Critism's Voucher</h1>
-        <p class="subtitle">The ultimate bot to enhance and secure your Discord server.</p>
-        
-        <!-- Main Action Buttons -->
-        <div class="main-actions">
-            <a href="#" class="btn btn-blurple">Invite Bot</a>
-            <a href="#" class="btn btn-secondary">Support Server</a>
-        </div>
-        <!-- Announcement Category -->
+                <!-- Announcement Category -->
         <div class="announcement-box">
             <div class="announcement-header">
                 <span style="font-size: 1.4rem;">📢</span>
@@ -306,14 +318,14 @@
             <p class="announcement-text">
                 <strong>Update v2.1 is officially live!</strong> We completely overhauled the voucher system. From now on, automatic action logs are supported inside your Discord server as soon as a code is successfully redeemed.
             </p>
-            <span class="announcement-date">Posted on June 3, 2026</span>
+            <span class="announcement-date">📅 Posted on June 3, 2026</span>
         </div>
 
         <!-- Features Grid -->
-        <h2>Core Features</h2>
+        <h2>🛡️ Core Features</h2>
         <div class="features">
             <div class="card">
-                <h3>🛡️ Security</h3>
+                <h3>🔒 Security</h3>
                 <p>Protect your server from raid attacks and automated bad actors with modern, advanced filters.</p>
             </div>
             <div class="card">
@@ -328,46 +340,64 @@
 
         <!-- How It Works Section -->
         <div class="section-block">
-            <h2>How It Works</h2>
+            <h2>⚙️ How It Works</h2>
             <div class="steps-grid">
                 <div class="step-item">
-                    <div class="step-num">1</div>
+                    <div class="step-num">1️⃣</div>
                     <p>Invite the bot to your Discord server using the blue button at the top of this page.</p>
                 </div>
                 <div class="step-item">
-                    <div class="step-num">2</div>
+                    <div class="step-num">2️⃣</div>
                     <p>Use the global <code>/setup</code> command to configure basic logging and notification channels.</p>
                 </div>
                 <div class="step-item">
-                    <div class="step-num">3</div>
+                    <div class="step-num">3️⃣</div>
                     <p>Generate secure codes with <code>/voucher create</code> and reward your community members.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Discord Embed Preview -->
+        <!-- Discord Embed Preview (With Neutral Placeholders) -->
         <div class="section-block">
-            <h2>Embed Preview</h2>
+            <h2>🖼️ Embed Preview</h2>
             <p style="color: var(--text-muted); margin-bottom: 20px;">This is how an automated bot notification looks inside Discord:</p>
             
             <div class="discord-embed-container">
-                <div class="discord-embed">
+                <div class="discord-embed" style="max-width: 600px;">
                     <div class="embed-content">
-                        <div class="embed-title">🎁 New Voucher Available!</div>
-                        <div class="embed-description">A new community voucher code has just been generated. Claim it quickly before anyone else does!</div>
+                        <div class="embed-title">✅ New Voucher Received!</div>
+                        <div class="embed-description" style="margin-bottom: 16px;">A new positive vouch has been submitted for <span class="embed-mention">@User</span>.</div>
                         
-                        <div class="embed-fields">
+                        <div class="embed-fields" style="grid-template-columns: repeat(3, 1fr); gap: 10px;">
                             <div>
-                                <div class="embed-field-title">Code</div>
-                                <div class="embed-value"><code>CRITISM-2026-XMAS</code></div>
+                                <div class="embed-field-title">👤 User Vouched</div>
+                                <div class="embed-value"><span class="embed-mention">@User</span></div>
                             </div>
                             <div>
-                                <div class="embed-field-title">Created By</div>
-                                <div class="embed-value"><span class="embed-mention">@Critism</span></div>
+                                <div class="embed-field-title">✍️ Vouched By</div>
+                                <div class="embed-value"><span class="embed-mention">@Buyer</span></div>
+                            </div>
+                            <div>
+                                <div class="embed-field-title">📊 Total Vouches</div>
+                                <div class="embed-value"><strong>1</strong> vouchers</div>
                             </div>
                         </div>
                         
-                        <div class="embed-footer">Critism's Voucher • Today at 4:25 PM</div>
+                        <div style="margin-top: 16px;">
+                            <div class="embed-field-title">📄 Reason / Details</div>
+                            <div class="embed-value" style="line-height: 1.5;">
+                                Vouch <span class="embed-mention">@User</span> and <span class="embed-mention">@Staff</span> too: Quick and smooth transaction. Very helpful support during the setup process!
+                            </div>
+                        </div>
+                        
+                        <div class="embed-footer">User ID: 000000000000000000 • Anti-Scam Verification • today at 3:00 PM</div>
+                    </div>
+                    
+                    <!-- Avatar / Thumbnail Right Side -->
+                    <div class="embed-thumbnail" style="display: flex; align-items: flex-start; padding-top: 4px;">
+                        <div style="width: 80px; height: 80px; background: #5865F2; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #3f4147;">
+                            <span style="color: #ffffff; font-weight: bold; font-family: sans-serif; font-size: 1.5rem;">🤖</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -378,9 +408,8 @@
     <footer>
         <p>&copy; 2026 Critism's Voucher. All rights reserved.</p>
         <p>
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Discord ToS</a>
+            <a href="#">🔒 Privacy Policy</a> | 
+            <a href="#">📜 Terms of Service</a> | 
         </p>
     </footer>
 
