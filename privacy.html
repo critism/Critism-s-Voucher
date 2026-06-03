@@ -3,39 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy - Critism's Voucher</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; background: #2f3136; color: white; }
-        h1, h2 { color: #5865F2; }
-        a { color: #5865F2; text-decoration: none; font-weight: bold; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
+        :root {
+            --bg-color: #1e1f22;
+            --card-color: #2b2d31;
+            --text-color: #f2f3f5;
+            --text-muted: #b5bac1;
+            --blurple: #5865F2;
+            --blurple-hover: #4752c4;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            padding: 40px 20px; 
+            max-width: 750px; 
+            margin: 0 auto; 
+            background: var(--bg-color); 
+            color: var(--text-color); 
+        }
+        
+        h1, h2, h3 { 
+            color: var(--text-color); 
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--card-color);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--blurple);
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+
+        p, li {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul { 
+            padding-left: 25px; 
+            margin-top: 5px;
+        }
+
+        li { 
+            margin-bottom: 8px; 
+        }
+
+        .update-date {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .back-link { 
+            color: var(--blurple); 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: inline-block;
+            margin-top: 40px;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link:hover { 
+            color: var(--blurple-hover);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p><strong>Last updated: June 2026</strong></p>
+    <span class="update-date">Last updated: June 2026</span>
     
-    <p>This Privacy Policy describes how your data is handled when you use our Discord Bot. By adding the bot to your server, you agree to this policy.</p>
+    <p>This Privacy Policy describes how your data is handled when you use the <strong>Critism's Voucher</strong> Discord Bot and our associated website. By adding the bot to your server or logging into our website, you agree to this policy.</p>
 
     <h2>1. Data We Collect</h2>
-    <p>Our bot may process or temporarily store the following information from Discord:</p>
+    <p>We process or temporarily access data through the following interactions:</p>
+    
+    <h3>A. Via the Discord Bot</h3>
     <ul>
-        <li>User IDs and Server IDs (Guild IDs)</li>
-        <li>Basic profile data (Username)</li>
-        <li>Message Content (only when commands are triggered)</li>
+        <li><strong>Identifiers:</strong> User IDs, Server IDs (Guild IDs), and Role IDs.</li>
+        <li><strong>Profile Data:</strong> Discord usernames and custom server nicknames.</li>
+        <li><strong>Message Content:</strong> Text strings processed only when our explicit application commands or prefix systems are triggered.</li>
     </ul>
 
-    <h2>2. How We Use Data</h2>
-    <p>We only use this data to execute the bot's commands, manage settings for your server, and ensure the proper technical operation of the bot.</p>
+    <h3>B. Via Website Authentication (Login with Discord)</h3>
+    <ul>
+        <li>When you use our website login feature, we use Discord's OAuth2 API to read your public profile information (specifically your User ID, username, and profile avatar link).</li>
+    </ul>
 
-    <h2>3. Data Retention</h2>
-    <p>We do not store your data permanently unless it is strictly required for the bot's functionality (like saving your custom server configuration). No text logs or chat histories are saved permanently.</p>
+    <h2>2. How We Use Your Data</h2>
+    <p>We strictly utilize the processed data for the following essential structural purposes:</p>
+    <ul>
+        <li>To execute, format, and deliver operational voucher commands within your text channels.</li>
+        <li>To retain internal custom server settings chosen by administrators.</li>
+        <li>To properly authenticate your identity and display your profile picture on the web app interface layout.</li>
+    </ul>
+
+    <h2>3. Data Retention & Local Storage</h2>
+    <ul>
+        <li><strong>Bot Infrastructure:</strong> No conversation histories or chat text logs are permanently archived or stored on our servers. Server configurations are kept indefinitely until the bot is removed.</li>
+        <li><strong>Website Infrastructure:</strong> Because our application is statically hosted via GitHub Pages, your Discord access token is saved strictly on your local browser memory layer (via <code>localStorage</code>). We do not host a central database that captures or stores your login keys.</li>
+    </ul>
 
     <h2>4. Third-Party Sharing</h2>
-    <p>We do not sell, trade, or share any user data with third parties.</p>
+    <p>We do not sell, trade, rent, or lease any individual user analytics or identity datasets with third parties. All authentication operations happen directly through Discord's official secure gateway pipelines.</p>
 
-    <br><br>
-    <p><a href="index.html">← Back to Home</a></p>
+    <h2>5. Data Removal</h2>
+    <p>If you wish to purge saved voucher settings or server variables, kicking the bot from your server will flag those parameters for deletion. You can remove website profile access at any time by simply clicking the <strong>Logout</strong> button on the landing dashboard.</p>
+
+    <a class="back-link" href="index.html">← Back to Home</a>
 </body>
 </html>
