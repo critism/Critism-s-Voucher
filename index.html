@@ -22,6 +22,8 @@
             --success: #23a55a;
             --embed-bg: #2b2d31;
             --embed-border: #23a55a;
+            --info-bg: rgba(88, 101, 242, 0.1);
+            --info-border: #5865F2;
         }
         
         body { 
@@ -133,6 +135,17 @@
         }
         .btn-secondary:active { transform: translateY(-1px); }
 
+        .btn-success {
+            background: var(--success);
+            box-shadow: 0 4px 15px rgba(35, 165, 90, 0.2);
+        }
+        .btn-success:hover {
+            background: #1f8b4c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(35, 165, 90, 0.5);
+        }
+        .btn-success:active { transform: translateY(-1px); }
+
         @keyframes pulseGlow {
             0% { box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
             50% { box-shadow: 0 4px 25px rgba(88, 101, 242, 0.5); }
@@ -143,7 +156,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             text-align: left;
         }
 
@@ -162,7 +175,6 @@
         .card h3 { margin-top: 0; color: var(--blurple); }
         .card p { margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- HOW IT WORKS & EMBED PREVIEW STYLES --- */
         .section-block {
             background: var(--card-color);
             padding: 30px;
@@ -171,6 +183,66 @@
             text-align: left;
             margin-bottom: 40px;
         }
+
+        /* --- MESSAGE / ANNOUNCEMENT BOX --- */
+        .message-box {
+            background: var(--info-bg);
+            border-left: 4px solid var(--info-border);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        .message-box h4 {
+            margin: 0 0 8px 0;
+            color: white;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .message-box p {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .overview-item {
+            background: #1e1f22;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #3f4147;
+        }
+        .overview-stat {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blurple);
+            margin-bottom: 5px;
+        }
+        .overview-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .support-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .support-text { flex: 1; min-width: 280px; }
+        .support-text p { margin: 5px 0 0 0; color: var(--text-muted); }
 
         .steps-grid {
             display: grid;
@@ -192,7 +264,6 @@
         }
         .step-item p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
 
-        /* Discord Embed Simulator */
         .discord-embed-container {
             background: #313338;
             padding: 20px;
@@ -240,15 +311,10 @@
         }
 
         footer { padding: 30px; background: #111214; font-size: 0.9rem; margin-top: 40px; }
-        footer a { color: var(--blurple); text-decoration: none; margin: 0 10px; font-weight: 500; }
-        footer a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
+### Teil 2: HTML-Inhalt (Meldungs-Box, Overview, Support-Bereich, Embed-Vorschau) und Footer
+Füge diesen zweiten Block nahtlos **direkt unter dem ersten Teil** ein:
 
-    <div class="navbar">
-        <div class="brand">Critism's Voucher</div>
-    </div>
+```html
     <div class="container">
         <h1>Critism's Voucher</h1>
         <p class="subtitle">The ultimate bot to enhance your Discord server.</p>
@@ -257,9 +323,16 @@
             <span class="pulse-dot"></span>
             <span>Trusted by 150+ Servers</span>
         </div>
+
+        <!-- --- NEUE ANNOUNCEMENT / MESSAGE BOX --- -->
+        <!-- Hier kannst du deine Nachricht hineinschreiben -->
+        <div class="message-box">
+            <h4>📢 Important Notice</h4>
+            <p>We are currently rolling out V2 of our Anti-Scam Verification system! If you encounter any bugs or need assistance setting up your logging channels, please jump straight into our support server using the button below. Thank you for your continued trust!</p>
+        </div>
         
         <div class="main-actions">
-            <!-- Setze hier im href deine echte Bot-Invite-URL aus dem URL-Generator ein -->
+            <!-- Tausche das href mit deinem echten Bot-Invite-Link aus -->
             <a class="btn btn-blurple" href="https://discord.com/oauth2/authorize?client_id=1511428201547567355" target="_blank">Invite Bot</a>
             <a class="btn btn-secondary" href="commands.html">View Commands</a>
         </div>
@@ -277,6 +350,42 @@
             <div class="card">
                 <h3>🛠️ Slash Commands</h3>
                 <p>Fully supports integrated application commands for an intuitive user experience.</p>
+            </div>
+        </div>
+
+        <!-- SYSTEM OVERVIEW SEKTION -->
+        <div class="section-block">
+            <h2>📊 System Overview</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">A quick glance at our live performance metrics and global operational status:</p>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <div class="overview-stat">99.9%</div>
+                    <div class="overview-label">Uptime Rate</div>
+                </div>
+                <div class="overview-item">
+                    <div class="overview-stat">&lt; 50ms</div>
+                    <div class="overview-label">Response Time</div>
+                </div>
+                <div class="overview-item">
+                    <div class="overview-stat">10k+</div>
+                    <div class="overview-label">Logged Vouches</div>
+                </div>
+                <div class="overview-item">
+                    <div class="overview-stat">Secured</div>
+                    <div class="overview-label">Anti-Scam</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- NEUE SUPPORT SEKTION --- -->
+        <div class="section-block">
+            <div class="support-flex">
+                <div class="support-text">
+                    <h2 style="margin: 0;">💬 Need Support?</h2>
+                    <p>Have questions or need help setting up the bot? Join our official community server.</p>
+                </div>
+                <!-- ERSETZE HIER DEN HREF-LINK MIT DEINER DISCORD-SUPPORT-EINLADUNG -->
+                <a class="btn btn-success" href="https://discord.gg/AkRBQke76" target="_blank">Join Support Server</a>
             </div>
         </div>
 
@@ -317,7 +426,6 @@
                         <div class="embed-footer">User ID: 000000000000000000 • Anti-Scam Verification • Today at 15:01</div>
                     </div>
                     <div class="embed-thumbnail">
-                        <!-- Platzhalter für das Logo im Embed -->
                         <img src="https://discordapp.com" alt="Bot Logo">
                     </div>
                 </div>
@@ -344,9 +452,9 @@
         </div>
 
         <!-- ABOUT US SEKTION -->
-        <div class="about-section">
+        <div class="section-block" style="background: var(--card-color);">
             <h2>👥 About Us</h2>
-            <p>Welcome to Critism's Voucher! We are dedicated to creating powerful, secure, and user-friendly tools for Discord communities. Our mission is to simplify server management by providing an intuitive voucher system that helps administrators reward, track, and engage their members efficiently. Built with modern web technologies, we ensure high reliability and speed so you can focus on growing your community.</p>
+            <p style="color: var(--text-muted); line-height: 1.6; font-size: 1rem; margin: 0;">Welcome to Critism's Voucher! We are dedicated to creating powerful, secure, and user-friendly tools for Discord communities. Our mission is to simplify server management by providing an intuitive voucher system that helps administrators reward, track, and engage their members efficiently. Built with modern web technologies, we ensure high reliability and speed so you can focus on growing your community.</p>
         </div>
     </div>
 
