@@ -34,7 +34,6 @@
             min-height: 100vh;
         }
 
-        /* Top Navbar for Login */
         .navbar {
             display: flex;
             justify-content: flex-end;
@@ -66,10 +65,12 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 0.85rem;
+            transition: all 0.2s ease;
         }
         .logout-btn:hover {
             background: var(--danger);
             color: white;
+            box-shadow: 0 0 10px rgba(218, 55, 60, 0.4);
         }
 
         .login-btn {
@@ -80,8 +81,12 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
-        .login-btn:hover { background: var(--blurple-hover); }
+        .login-btn:hover { 
+            background: var(--blurple-hover); 
+            box-shadow: 0 0 12px rgba(88, 101, 242, 0.5);
+        }
 
         .container {
             flex: 1;
@@ -100,6 +105,7 @@
             margin-bottom: 40px;
         }
 
+        /* --- ANIMIERTE BUTTONS --- */
         .btn { 
             padding: 14px 28px; 
             color: white; 
@@ -107,24 +113,50 @@
             display: inline-block; 
             font-weight: 600;
             text-decoration: none; 
-            transition: background 0.2s ease, transform 0.1s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             border: none;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .btn-blurple { background: var(--blurple); }
+        .btn-blurple { 
+            background: var(--blurple); 
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            animation: pulseGlow 3s infinite;
+        }
         .btn-blurple:hover { 
             background: var(--blurple-hover); 
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+        }
+        .btn-blurple:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.4);
         }
 
-        .btn-secondary { background: var(--secondary-btn); }
+        .btn-secondary { 
+            background: var(--secondary-btn); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
         .btn-secondary:hover {
             background: var(--secondary-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        .btn-secondary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
+            50% { box-shadow: 0 4px 25px rgba(88, 101, 242, 0.5); }
+            100% { box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
+        }
+
+        /* --- FEATURE KARTEN HOVER --- */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -138,12 +170,39 @@
             padding: 20px;
             border-radius: 8px;
             border: 1px solid #3f4147;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blurple);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .card h3 { margin-top: 0; color: var(--blurple); }
         .card p { margin-bottom: 0; color: var(--text-muted); font-size: 0.95rem; }
 
-        footer { padding: 30px; background: #111214; font-size: 0.9rem; }
+        /* --- ABOUT US BEREICH --- */
+        .about-section {
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--card-color);
+            border-radius: 8px;
+            border: 1px solid #3f4147;
+            text-align: left;
+        }
+        .about-section h2 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        .about-section p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        footer { padding: 30px; background: #111214; font-size: 0.9rem; margin-top: 40px; }
         footer a { color: var(--blurple); text-decoration: none; margin: 0 10px; font-weight: 500; }
         footer a:hover { text-decoration: underline; }
         
@@ -152,10 +211,9 @@
 </head>
 <body>
 
-    <!-- Navigation Bar with Login Elements -->
     <div class="navbar">
         <div id="login-section">
-            <a id="https://discord.com/login" class="login-btn" href="#">Login with Discord</a>
+            <a id="discord-login-link" class="login-btn" href="#">Login with Discord</a>
         </div>
         <div id="user-section" class="user-profile hidden">
             <img id="user-avatar" class="avatar" src="" alt="Avatar">
@@ -163,13 +221,12 @@
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
     </div>
-
     <div class="container">
         <h1>Critism's Voucher</h1>
         <p class="subtitle">The ultimate bot to enhance your Discord server.</p>
         
         <div class="main-actions">
-            <a class="btn btn-blurple" href="https://discord.com/oauth2/authorize?client_id=1511428201547567355" target="_blank">Invite Bot</a>
+            <a class="btn btn-blurple" href="https://discord.com" target="_blank">Invite Bot</a>
             <a class="btn btn-secondary" href="commands.html">View Commands</a>
         </div>
 
@@ -187,6 +244,12 @@
                 <p>Fully supports integrated application commands for an intuitive user experience.</p>
             </div>
         </div>
+
+        <!-- ABOUT US BEREICH -->
+        <div class="about-section">
+            <h2>👥 About Us</h2>
+            <p>Welcome to Critism's Voucher! We are dedicated to creating powerful, secure, and user-friendly tools for Discord communities. Our mission is to simplify server management by providing an intuitive voucher system that helps administrators reward, track, and engage their members efficiently. Built with modern web technologies, we ensure high reliability and speed so you can focus on growing your community.</p>
+        </div>
     </div>
 
     <footer>
@@ -195,7 +258,7 @@
         <a href="tos.html">Terms of Service</a>
     </footer>
 
-    <!-- JavaScript to Handle OAuth2 Logic -->
+    <!-- JavaScript-Logik für Discord OAuth2 -->
     <script>
         const CLIENT_ID = '1511428201547567355'; 
         const REDIRECT_URI = window.location.origin + window.location.pathname; 
@@ -237,10 +300,13 @@
             document.getElementById('login-section').classList.add('hidden');
             document.getElementById('user-section').classList.remove('hidden');
             document.getElementById('user-name').innerText = user.username;
+            
             if (user.avatar) {
                 document.getElementById('user-avatar').src = `https://discordapp.com{user.id}/${user.avatar}.png`;
             } else {
-                const defaultAvatarIdx = parseInt(user.discriminator) % 5 || 0;
+                const defaultAvatarIdx = user.discriminator && user.discriminator !== '0' 
+                    ? parseInt(user.discriminator) % 5 
+                    : (BigInt(user.id) >> 22n) % 6n;
                 document.getElementById('user-avatar').src = `https://discordapp.com{defaultAvatarIdx}.png`;
             }
         }
@@ -255,3 +321,4 @@
     </script>
 </body>
 </html>
+
