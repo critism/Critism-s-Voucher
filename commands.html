@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands - Critism's Voucher</title>
+    
+    <meta property="og:title" content="Critism's Voucher - Commands">
+    <meta property="og:description" content="Explore the full list of commands for Critism's Voucher.">
+    <meta property="og:theme-color" content="#5865F2">
+    
+    <style>
+        :root {
+            --bg-color: #1e1f22;
+            --card-color: #2b2d31;
+            --text-color: #f2f3f5;
+            --text-muted: #b5bac1;
+            --blurple: #5865F2;
+            --blurple-hover: #4752c4;
+            --secondary-btn: #4e5058;
+            --secondary-hover: #6d6f78;
+            --search-bg: #111214;
+            --green: #23a55a;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg-color); 
+            color: var(--text-color); 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-area {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+
+        /* Controls: Search and Filter */
+        .controls-wrapper {
+            background: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #3f4147;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 14px;
+            background: var(--search-bg);
+            border: 1px solid #3f4147;
+            border-radius: 6px;
+            color: var(--text-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-bar:focus {
+            border-color: var(--blurple);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--search-bg);
+            color: var(--text-muted);
+            border: 1px solid #3f4147;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--blurple);
+            color: white;
+            border-color: var(--blurple);
+        }
+
+        /* Commands Table Wrapper */
+        .commands-list {
+            background: var(--card-color);
+            border-radius: 8px;
+            border: 1px solid #3f4147;
+            overflow: hidden;
+        }
+
+        .command-row {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            padding: 20px;
+            border-bottom: 1px solid #3f4147;
+            align-items: center;
+            transition: background 0.15s;
+        }
+
+        .command-row:last-child {
+            border-bottom: none;
+        }
+
+        .command-row:hover {
+            background: #313338;
+        }
+
+        .command-name {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.05rem;
+            word-break: break-all;
+            padding-right: 10px;
+        }
+
+        .command-name span {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .command-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .command-desc {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .command-badge {
+            align-self: flex-start;
+            background: #111214;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .no-results {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--blurple);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        footer { padding: 30px; background: #111214; font-size: 0.9rem; text-align: center; margin-top: auto; }
+        footer a { color: var(--blurple); text-decoration: none; margin: 0 10px; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
+        
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-area">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <h1>Bot Commands</h1>
+            <p class="subtitle">Find and explore all available commands for Critism's Voucher.</p>
+        </div>
+
+        <!-- Search and Filter Controls -->
+        <div class="controls-wrapper">
+            <input type="text" id="search-input" class="search-bar" placeholder="Search for a command (e.g., vouch, profile, clear)..." oninput="searchAndFilter()">
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" onclick="setCategory('all', this)">All Commands</button>
+                <button class="filter-btn" data-filter="general" onclick="setCategory('general', this)">General</button>
+                <button class="filter-btn" data-filter="admin" onclick="setCategory('admin', this)">Admin Only</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Commands Grid -->
+        <div class="commands-list" id="commands-container">
+            
+            <!-- VOUCH -->
+            <div class="command-row" data-category="general">
+                <div class="command-name">/vouch <span>&lt;member&gt; &lt;reason&gt;</span></div>
+                <div class="command-info">
+                    <span class="command-desc">Vouches for a specific server member and saves the reason permanently in the system.</span>
+                    <span class="command-badge">Everyone</span>
+                </div>
+            </div>
+            
+            <!-- SCAMVOUCH -->
+            <div class="command-row" data-category="general">
+                <div class="command-name">/scamvouch <span>&lt;member&gt; &lt;reason&gt;</span></div>
+                <div class="command-info">
+                    <span class="command-desc">Flags and records a scam report against a member, logging it in the bot's memory history.</span>
+                    <span class="command-badge">Everyone</span>
+                </div>
+            </div>
+
+            <!-- PROFILE -->
+            <div class="command-row" data-category="general">
+                <div class="command-name">/profile <span>&lt;member&gt;</span></div>
+                <div class="command-info">
+                    <span class="command-desc">Fetches and displays the full tracking summary list of all vouches received by the user.</span>
+                    <span class="command-badge">Everyone</span>
+                </div>
+            </div>
+
+            <!-- CLEAR -->
+            <div class="command-row" data-category="admin">
+                <div class="command-name">/clear <span>&lt;member&gt;</span></div>
+                <div class="command-info">
+                    <span class="command-desc">Instantly deletes the entire vouch and scam history dataset of a specified member.</span>
+                    <span class="command-badge" style="color: #da373c;">Admin Only</span>
+                </div>
+            </div>
+
+            <!-- No Results Message Placeholder -->
+            <div id="no-results-msg" class="no-results hidden">
+                No matching commands found for your search criteria.
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Critism's Voucher. All rights reserved.</p>
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="tos.html">Terms of Service</a>
+    </footer>
+
+    <!-- Interactive JavaScript Engine -->
+    <script>
+        let currentCategory = 'all';
+
+        function setCategory(category, element) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            
+            currentCategory = category;
+            searchAndFilter();
+        }
+
+        function searchAndFilter() {
+            const searchValue = document.getElementById('search-input').value.toLowerCase();
+            const rows = document.querySelectorAll('.command-row');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const commandName = row.querySelector('.command-name').innerText.toLowerCase();
+                const commandDesc = row.querySelector('.command-desc').innerText.toLowerCase();
+                const category = row.getAttribute('data-category');
+
+                const matchesSearch = commandName.includes(searchValue) || commandDesc.includes(searchValue);
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    row.style.display = 'grid';
+                    visibleCount++;
