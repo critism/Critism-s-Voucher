@@ -20,6 +20,7 @@
             --secondary-btn: #4e5058;
             --secondary-hover: #6d6f78;
             --danger: #da373c;
+            --success: #23a55a;
         }
         
         body { 
@@ -96,7 +97,35 @@
         }
 
         h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 30px; }
+        .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 15px; }
+
+        /* --- SERVER COUNT BADGE --- */
+        .server-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(35, 165, 90, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(35, 165, 90, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(35, 165, 90, 0.7);
+            animation: pulseDot 2s infinite;
+        }
+        @keyframes pulseDot {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(35, 165, 90, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(35, 165, 90, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(35, 165, 90, 0); }
+        }
 
         .main-actions {
             display: flex;
@@ -225,6 +254,12 @@
         <h1>Critism's Voucher</h1>
         <p class="subtitle">The ultimate bot to enhance your Discord server.</p>
         
+        <!-- NEUER SERVER COUNT ZÄHLER (Hier kannst du die Zahl anpassen) -->
+        <div class="server-badge">
+            <span class="pulse-dot"></span>
+            <span>Trusted by 150+ Servers</span>
+        </div>
+        
         <div class="main-actions">
             <a class="btn btn-blurple" href="https://discord.com" target="_blank">Invite Bot</a>
             <a class="btn btn-secondary" href="commands.html">View Commands</a>
@@ -245,7 +280,6 @@
             </div>
         </div>
 
-        <!-- ABOUT US BEREICH -->
         <div class="about-section">
             <h2>👥 About Us</h2>
             <p>Welcome to Critism's Voucher! We are dedicated to creating powerful, secure, and user-friendly tools for Discord communities. Our mission is to simplify server management by providing an intuitive voucher system that helps administrators reward, track, and engage their members efficiently. Built with modern web technologies, we ensure high reliability and speed so you can focus on growing your community.</p>
@@ -258,8 +292,8 @@
         <a href="tos.html">Terms of Service</a>
     </footer>
 
-    <!-- JavaScript-Logik für Discord OAuth2 -->
     <script>
+        // Ersetze diese ID hier mit deiner echten Discord Application ID
         const CLIENT_ID = '1511428201547567355'; 
         const REDIRECT_URI = window.location.origin + window.location.pathname; 
 
