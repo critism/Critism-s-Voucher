@@ -3,34 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service</title>
+    <title>Terms of Service - Critism's Voucher</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; background: #2f3136; color: white; }
-        h1, h2 { color: #5865F2; }
-        a { color: #5865F2; text-decoration: none; font-weight: bold; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
+        :root {
+            --bg-color: #1e1f22;
+            --card-color: #2b2d31;
+            --text-color: #f2f3f5;
+            --text-muted: #b5bac1;
+            --blurple: #5865F2;
+            --blurple-hover: #4752c4;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            padding: 40px 20px; 
+            max-width: 750px; 
+            margin: 0 auto; 
+            background: var(--bg-color); 
+            color: var(--text-color); 
+        }
+        
+        h1, h2 { 
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--card-color);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--blurple);
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+
+        p, li {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        ul { 
+            padding-left: 25px; 
+            margin-top: 5px;
+        }
+
+        li { 
+            margin-bottom: 8px; 
+        }
+
+        .update-date {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .back-link { 
+            color: var(--blurple); 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: inline-block;
+            margin-top: 40px;
+            transition: color 0.2s ease;
+        }
+        
+        .back-link:hover { 
+            color: var(--blurple-hover);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h1>Terms of Service</h1>
-    <p><strong>Last updated: June 2026</strong></p>
+    <span class="update-date">Last updated: June 2026</span>
     
-    <p>Welcome to our Discord Bot. By inviting our bot to your server or using its features, you agree to comply with and be bound by the following Terms of Service.</p>
+    <p>Welcome to <strong>Critism's Voucher</strong>. By inviting our Discord bot to your server, executing its commands, or using this website, you agree to comply with and be bound by the following Terms of Service.</p>
 
     <h2>1. Acceptance of Terms</h2>
-    <p>If you do not agree with any part of these terms, you are not permitted to use the bot and must remove it from your server immediately.</p>
+    <p>If you do not agree with any part of these terms, you are not permitted to use the bot or this website dashboard. You must log out of the site and remove the bot from your server immediately.</p>
 
-    <h2>2. Use License</h2>
-    <p>We grant you permission to use the bot's features for personal or community entertainment. You agree not to abuse the bot, attempt to crash it, or use it to violate Discord's official Terms of Service.</p>
+    <h2>2. User Responsibilities & Conduct</h2>
+    <p>We grant you permission to use our bot's voucher features for personal or community administration. By using these tools, you explicitly agree that you will not:</p>
+    <ul>
+        <li>Abuse the system, exploit code bugs, or attempt to crash our infrastructure.</li>
+        <li>Spam command functions or generate malicious API load spikes.</li>
+        <li>Use our services to break official Discord Terms of Service or Community Guidelines.</li>
+    </ul>
 
     <h2>3. Disclaimer of Liability</h2>
-    <p>The bot is provided "as is" without any warranties. We are not responsible for any service interruptions, data loss, or server management issues caused by the bot.</p>
+    <p>Critism's Voucher is provided on an "as is" and "as available" basis without any warranties. We are not liable for service interruptions, technical downtime, data loss, configuration drops, or server management problems stemming from bot operations.</p>
 
-    <h2>4. Modifications</h2>
-    <p>We reserve the right to change or update these terms at any time. Continued use of the bot after changes means you accept the new terms.</p>
+    <h2>4. Website Content & Access</h2>
+    <p>This static website layout relies on Discord's OAuth2 protocols to display user layout panels. We do not guarantee uninterrupted web connectivity, and we reserve the right to revoke web panel features or clear temporary browser configurations at any time.</p>
 
-    <br><br>
-    <p><a href="index.html">← Back to Home</a></p>
+    <h2>5. Modifications</h2>
+    <p>We reserve the right to change or update these terms at any time. Continued use of the bot or website layout following structural changes constitutes absolute acceptance of the updated terms.</p>
+
+    <a class="back-link" href="index.html">← Back to Home</a>
 </body>
 </html>
